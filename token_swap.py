@@ -4,12 +4,11 @@ import heapq
 DECIMALS: int = 6
 
 
-def get_max_tokens(tokens: list[str], token_pairs: int, queries: list[str], queries_count: int):
-    _validate(tokens)
-    _validate(queries)
-
+def get_max_tokens(tokens: list[str], queries: list[str]):
     # Create a graph with exchange rates as edges
     graph = defaultdict(dict)
+    token_pairs: int = len(tokens)
+
     for i in range(token_pairs):
         token_a, token_b, rate = tokens[i].split(', ')
         rate = float(rate)
@@ -18,6 +17,8 @@ def get_max_tokens(tokens: list[str], token_pairs: int, queries: list[str], quer
 
     # Run Dijkstra's algorithm for each query
     max_tokens = []
+    queries_count: int = len(queries)
+
     for i in range(queries_count):
         token_a, token_c, amount = queries[i].split(', ')
         amount = float(amount)
@@ -35,10 +36,3 @@ def get_max_tokens(tokens: list[str], token_pairs: int, queries: list[str], quer
                     heapq.heappush(heap, (next_amount, neighbor))
 
     return max_tokens
-
-
-def _validate(tokens: list[str]):
-    for token in tokens:
-        token_a, token_b, rate = token.split(', ')
-        assert token_a != token_b
-        assert float(rate) > 0
