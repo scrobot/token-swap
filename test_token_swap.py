@@ -11,7 +11,7 @@ class TokenSwapCase(unittest.TestCase):
         tokens = ["TokenA, TokenB, 1.2", "TokenB, TokenC, 0.003"]
         queries = ["TokenA, TokenC, 10000", "TokenB, TokenA, 10000"]
         expected = [36, 8333.333333]
-        result = get_max_tokens(tokens, 2, queries, 2)
+        result = get_max_tokens(tokens, queries)
 
         self.assertEqual(result, expected)
 

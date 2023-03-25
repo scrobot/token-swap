@@ -1,5 +1,7 @@
 # token swap test 
 
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/scrobot/token-swap/python-app.yml?style=plastic)
+
 ## token_swap.py
 
 ### Problem:
