@@ -16,6 +16,7 @@ def get_max_tokens(tokens: list[str], queries: list[str]):
         graph[token_b][token_a] = 1.0 / rate
 
     # Run Dijkstra's algorithm for each query
+    # TODO: current complexity is O(n*m * log(m)) n is number of queries, m is number of tokens. Perhaps, it could be improved
     max_tokens = []
     queries_count: int = len(queries)
 

@@ -8,14 +8,18 @@
 
 You are given a list of token pairs and their exchange rates in the following format:
 
+```
 TokenA, TokenB, 1.2
 TokenB, TokenC, 0.003
+```
 
 This indicates that 1 unit of TokenA can be swapped for 1.2 units of TokenB, and 1 unit of TokenB can be swapped for 0.003 units of TokenC.
 
 You will be given a number of queries, where each query will be in the format of:
 
+```
 TokenA, TokenC, 10000
+```
 
 This indicates that the user wants to swap 10000 units of TokenA to TokenC.
 
@@ -30,18 +34,21 @@ The next q lines will contain the queries in the format of TokenA, TokenC, amoun
 Output:
 
 For each query, output a single line containing the maximum number of tokens that can be received.
-Example:
-Input:
+Example input:
+```
 2
 TokenA, TokenB, 1.2
 TokenB, TokenC, 0.003
 2
 TokenA, TokenC, 10000
 TokenB, TokenA, 10000
+```
 
 Output:
+```
 36
 8333.333333
+```
 
 Note:
 

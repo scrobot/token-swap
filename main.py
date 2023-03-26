@@ -18,7 +18,7 @@ def get_max_tokens_cli():
     tokens = list(filter(None, tokens))
 
     if len(tokens) != count or _is_invalid(tokens):
-        print("Invalid input")
+        print("Invalid input: token pairs count({}) or format(validation_failed={})".format(len(tokens), _is_invalid(tokens)))
         return
 
     count = int(input("Enter queries count: "))
@@ -43,10 +43,14 @@ def _is_invalid(tokens: list[str]):
     for token in tokens:
         try:
             token_a, token_b, rate = token.split(', ')
-            if token_a != token_b or float(rate) > 0:
+            if token_a == token_b or float(rate) <= 0:
+                print("token_a({}) == token_b({}): {}".format(token_a, token_b, token_a == token_b))
+                print("rate <= 0: {}".format(float(rate) <= 0))
                 return True
         except ValueError:
+            print("Validation failed on parsing: {}".format(token))
             return True
+    return False
 
 
 # Press the green button in the gutter to run the script.
